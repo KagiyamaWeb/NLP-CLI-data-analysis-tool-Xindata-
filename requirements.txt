@@ -1,0 +1,5 @@
+google-generativeai>=0.3.0
+pandas==2.2.2
+python-dotenv==1.0.1
+sqlalchemy==2.0.29
+kaggle==1.7.4.5
