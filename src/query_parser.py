@@ -26,7 +26,7 @@ class QueryParser:
         
         response = self.model.generate_content(prompt)
         code = self._extract_code(response.text)
-        
+
         return self._execute_safe(code)
     
     def _extract_code(self, text: str) -> str:
@@ -35,8 +35,7 @@ class QueryParser:
         return '\n'.join([line.lstrip() for line in raw_code.split('\n')])
     
     def _execute_safe(self, code: str):
-        # Validate code structure
-        
+        # Forbidden patterns that break execution
         forbidden_patterns = ['def ', 'class ', 'lambda ', 'import os', 'import sys', 'from ']
         
         # Check for forbidden imports
